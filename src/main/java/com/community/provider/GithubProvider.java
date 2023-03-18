@@ -1,8 +1,6 @@
 package com.community.provider;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.lang.Console;
-import cn.hutool.http.Header;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
 import com.community.dto.AccessTokenDTO;
@@ -42,8 +40,6 @@ public class GithubProvider {
                 .header("Authorization", "Bearer " + accessToken)
                 .execute()
                 .body();
-        GithubUserInfo githubUserInfo = JSONUtil.toBean(userInfo, GithubUserInfo.class);
-        log.info(githubUserInfo.toString());
-        return githubUserInfo;
+        return JSONUtil.toBean(userInfo, GithubUserInfo.class);
     }
 }
