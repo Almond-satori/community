@@ -1,0 +1,24 @@
+# github授权登录
+github:
+  client:
+    id: acc36aa2d2ade5768267
+    redirectUri: https://localhost:8887/callback
+    secret: 3ca92b8f1cf860a15bb20ebc5e05ac14940df679
+
+# 网页使用未认证的https协议
+server:
+  port: 8887
+  ssl:
+    key-alias: tomcathttps
+    key-store: classpath:javaboy.p12
+    key-store-password: iwanttorun
+
+# MySQL配置
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/community?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+

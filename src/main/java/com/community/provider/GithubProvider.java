@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
 import com.community.dto.AccessTokenDTO;
-import com.community.dto.GithubUserInfo;
+import com.community.dto.GithubUserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -35,11 +35,13 @@ public class GithubProvider {
      * 向github查询绑定的github用户信息
      * @return GithubUserInfo
      */
-    public GithubUserInfo getGithubUserInfo(String accessToken){
+    public GithubUserDTO getGithubUserInfo(String accessToken){
         String userInfo = HttpRequest.get("https://api.github.com/user")
                 .header("Authorization", "Bearer " + accessToken)
                 .execute()
                 .body();
-        return JSONUtil.toBean(userInfo, GithubUserInfo.class);
+        GithubUserDTO githubUserDTO = JSONUtil.toBean(userInfo, GithubUserDTO.class);
+//        log.info(githubUserInfo.toString());
+        return githubUserDTO;
     }
 }
