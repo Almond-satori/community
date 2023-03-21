@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>A1m0nd社区</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="jQuery/jQuery.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <form action="" method="POST" th:action="@{/login/verify}">
+        <h2>Login</h2>
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p>Not registered yet? <a th:href="@{/register}">Register here</a></p>
+    </form>
+</div>
+<script>
+    function validateForm() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // 验证邮箱格式是否正确
+        if (!isValidEmail(email)) {
+            alert("邮箱格式不正确");
+            return false;
+        }
+
+        // 检查密码长度是否符合要求
+        if (password.length < 6) {
+            alert("密码长度必须为6位以上");
+            return false;
+        }
+
+        // 检查密码长度是否符合要求
+        if (password.length > 16) {
+            alert("密码长度不能超过16位");
+            return false;
+        }
+
+        return true;
+    }
+
+    function isValidEmail(email) {
+        // 使用正则表达式验证邮箱格式
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+</script>
+</body>
+
+</html>

@@ -2,11 +2,11 @@ package com.community.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.community.Bean.User;
-import com.community.dto.GithubUserDTO;
+
 
 public interface UserService extends IService<User> {
 
-    GithubUserDTO getGithubUserDTO(String code, String state);
+    User loginVerify(String email, String password);
 
-    User getUserByAccessId(GithubUserDTO userDTO);
+    boolean register(String email, String password);
 }

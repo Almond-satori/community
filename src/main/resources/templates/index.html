@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <script src="js/bootstrap.js"></script>
-
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -30,9 +29,6 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
 
-                <li th:if="${session.user == null}">
-                    <a href="https://github.com/login/oauth/authorize?client_id=acc36aa2d2ade5768267&redirect_uri=https://localhost:8887/callback&scope=user&state=1">
-                    登录</a></li>
 
                 <li class="dropdown" th:if="${session.user != null}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
